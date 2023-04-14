@@ -23,19 +23,12 @@ public class LoginPageTest {
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		Login login = new Login(driver);
-		
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		login.typeUsername("Admin");
 		login.typePassword("admin123");
 		login.logIn();
-		
-		
-		
-
-		
-
-
-
+		login.searchButton("Admin");
+		driver.close();
 	}
 }

@@ -20,13 +20,13 @@ public class AdminPageTest {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		Login login = new Login(driver);
 		Admin admin = new Admin(driver);
-		
+
 //		for login page
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		login.typeUsername("Admin");
 		login.typePassword("admin123");
 		login.logIn();
-		
+
 //		for Admin page
 		admin.adminModule();
 		admin.userManagement();
@@ -38,17 +38,8 @@ public class AdminPageTest {
 		admin.employeName("John Doe");
 //		admin.statusDropdown();
 //		admin.Status("Enabled");
-		admin.Search();			// it shows no results found
-		
-		
+		admin.Search(); // it shows no results found
+
 	}
-	
-	
+
 }
-
-
-	
-
-	
-
-

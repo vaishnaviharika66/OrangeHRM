@@ -12,37 +12,36 @@ import com.Excelr.Pages.Login;
 
 public class ConfigurationPageTest {
 	public static void main(String[] args) {
-		
-		
-	ChromeOptions options = new ChromeOptions();
-	options.addArguments("--remote-allow-origins=*");
-	ChromeDriver driver = new ChromeDriver(options);
 
-	driver.manage().window().maximize();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
 
-	driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-	Login login = new Login(driver);
-	Admin admin = new Admin(driver);
-	Configuration config = new Configuration(driver);
-	
+		driver.manage().window().maximize();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Login login = new Login(driver);
+		Admin admin = new Admin(driver);
+		Configuration config = new Configuration(driver);
+
 //	for login page
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	login.typeUsername("Admin");
-	login.typePassword("admin123");
-	login.logIn();
-	
-//	for Admin page
-	admin.adminModule();
-	
-	
-//	for configuration page
-	config.ConfigurationModule();
-	config.emailConfiguration();
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//	config.secureSMTP();
-	config.resetButton();
-	
-	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		login.typeUsername("Admin");
+		login.typePassword("admin123");
+		login.logIn();
 
-}
+//	for Admin page
+		admin.adminModule();
+
+//	for configuration page
+		config.ConfigurationModule();
+		config.emailConfiguration();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		config.clickSMtP();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		config.resetButton();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.close();
+
+	}
 }

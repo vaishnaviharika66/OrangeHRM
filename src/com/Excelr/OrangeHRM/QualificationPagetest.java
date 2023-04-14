@@ -12,35 +12,36 @@ import com.Excelr.Pages.Qualification;
 
 public class QualificationPagetest {
 	public static void main(String[] args) {
-		
-		
-	ChromeOptions options = new ChromeOptions();
-	options.addArguments("--remote-allow-origins=*");
-	ChromeDriver driver = new ChromeDriver(options);
 
-	driver.manage().window().maximize();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
 
-	driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-	Login login = new Login(driver);
-	Admin admin = new Admin(driver);
-	Jobpage jobpage = new Jobpage(driver);
-	
+		driver.manage().window().maximize();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Login login = new Login(driver);
+		Admin admin = new Admin(driver);
+		Jobpage jobpage = new Jobpage(driver);
+
 //	for login page
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	login.typeUsername("Admin");
-	login.typePassword("admin123");
-	login.logIn();
-	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		login.typeUsername("Admin");
+		login.typePassword("admin123");
+		login.logIn();
+
 //	for Admin page
-	admin.adminModule();
-	
-	
+		admin.adminModule();
+
 //	for Qualification page
-	Qualification qualification = new Qualification(driver) ;
+		Qualification qualification = new Qualification(driver);
 		qualification.QualificationModule();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		qualification.Skills();
 		qualification.checkBoxClick();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		qualification.deleteButton();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		qualification.confirmDelete();
 		qualification.QualificationModule();
 		qualification.educationMode();
